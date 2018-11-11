@@ -1,0 +1,95 @@
+<html>
+
+<script type="text/javascript" language="javascript" src="http://www.technicalkeeda.com/js/javascripts/plugin/jquery.js"></script>
+<script type="text/javascript" src="http://www.technicalkeeda.com/js/javascripts/plugin/json2.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+<script type="text/javascript" src="/js/apps.js"></script>
+
+<head>
+<title>Coding SPA</title>
+<style>
+td {
+    border: 2px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    background-color: grey;
+    color: white;
+    font-family: "calibri light";
+
+    
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display:inline;
+    margin-left:30px;
+}
+
+li {
+    float: left;
+    display:inline;
+}
+
+li a {
+    display: block;
+    color: red;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111111;
+}
+#viewDiv {
+float: left;
+	width: 21%;
+	margin-left:30px;
+}
+#search{
+float: left;
+	width: 21%;
+	margin-left:30px;
+}
+</style>
+</head>
+<body>
+
+ <script>var codingApp = angular.module("codingApp",  ["ngRoute"]);</script> 	
+<script type="text/javascript" src="/js/empController.js"></script>
+
+<div ng-app="codingApp" ng-controller="empController" ng-init="getEmpD()" >
+
+<table>
+	<tr ng-repeat="emp in employees ">
+		<td>{{ emp.empName }}</td>
+		<td>{{ emp.empActive }}</td>
+		<td>{{ emp.department.dpName }}</td>
+		<td><a href="#!update" ng-click="saveEmpForUpdate(emp)">Update</a></td>
+		<td><button ng-click="deleteEmp(emp)">Delete</button></td>
+		</tr>
+</table>
+
+<div>
+<ul ng-repeat="x in pages ">
+  <li><a ng-click="getEmp(x)">{{x.page}}</a></li>
+
+</ul>
+
+	
+
+ <form id="search">
+    Find this:<br><input type="text" ng-model="searchString"><br>
+    <button ng-click="search(searchString)">SEARCH</button>
+  </form>
+
+<div id="viewDiv" class="ng-view"></div>
+
+</div>
+
+</body>
+</html>

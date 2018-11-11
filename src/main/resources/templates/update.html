@@ -1,0 +1,16 @@
+<div>
+
+	UPDATING FORM:  		
+	<form ng-submit="updateEmp()">
+	    
+  	Name:<br><input type="text" value="male" ng-model="empl.empName"></input><br>
+  	Active:<br><input type="checkbox"  ng-model="empl.empActive" ng-true-value="'YES'" ng-false-value="'NO'"></input><br> 
+  	Department:
+  		<input type="radio" name="gender" value="Tech" ng-model="empl.department.dpName" checked>Tech<br>
+  		<input type="radio" name="gender" value="Finance" ng-model="empl.department.dpName">Finance<br>
+  		<input type="radio" name="gender" value="HR" ng-model="empl.department.dpName">HR<br><br>
+  	<input type="submit" value="Submit"></input>
+	</form>
+	<a href="#!empty"><button>Cancel</button></a>
+	
+</div>
