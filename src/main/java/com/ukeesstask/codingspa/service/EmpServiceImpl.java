@@ -16,7 +16,7 @@ public class EmpServiceImpl implements EmpService{
 	@Autowired
 	EmpRepository empRepository;
 	
-	public static int numberOfEmployeesPerPage = 5; 	
+	public static int numberOfEmployeesPerPage = 10; 	
 		
 	@Override
 	public Iterable<Employee> getAllEmployees(int pageNumber) {		
